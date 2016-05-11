@@ -1,0 +1,25 @@
+<div ng-controller="headerCtrl">
+	<header id="site-header" class="clearfix">
+		<div class="pull-left">
+			<h1>
+				<a href="#">Startegy</a>
+			</h1>
+		</div>
+		<div class="pull-right">
+			<nav class="navbar site-nav" role="navigation">
+				<div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <i class="fa fa-bars fa-2x"></i>
+                    </button>
+                </div>
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" ng-repeat="menu in menus">
+						<li ng-class="menu.classes"><a href="#" ng-click="setPageMainContent(menu.url)"><i
+								ng-class="menu.iconClasses"></i> <span>{{menu.name}}</span></a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+</div>

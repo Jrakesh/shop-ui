@@ -1,0 +1,29 @@
+{
+  "name": "example",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "1.4.6",
+    "angular-route": "1.4.6",
+    "angular-sanitize": "1.4.6",
+    "angular-mocks": "1.4.6",
+    "jquery": "2.1.4",
+    "jquery-ui": "*",
+    "underscore": "1.8.3",
+    "restangular": "1.5.1",
+    "angular-animate": "1.4.6",
+    "angular-cookies": "1.4.6",
+    "angular-strap": "2.3.2",
+    "bootstrap": "3.3.5",
+    "angular-modal-service": "0.6.7",
+    "angular-base64": "2.0.5",
+    "angular-toastr": "1.5.0",
+    "angular-spinner": "*",
+    "angular-local-storage": "*",
+    "highcharts-ng": "0.0.10",
+    "ng-dialog": "0.5.5",
+    "nsPopover": "0.6.8",
+    "angularjs-datepicker": "~0.2.16",
+    "angular-messages": "1.5.0"
+  },
+  "analytics": false
+}

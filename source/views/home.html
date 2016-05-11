@@ -1,0 +1,30 @@
+<div class="middle text-center clearfix main-content" ng-controller="authCtrl">
+	<div class="spinner-section hidden-section">
+		<span class="spinner-details" us-spinner="{radius:20, width:8, length: 16}" spinner-key="spinner-1"></span>
+	</div>
+	<div class="page-content">
+		<div class="login-content">
+			<div class="heading-content">
+				<label ng-click="setPageMainContent('source/views/shop.html')"><a href="#" class="underline">Create Shop</a></label>
+				<h2 class="heading-text">Welcome Back!</h2>
+				<h5>Log into your account here:</h5>
+			</div>
+			<form name="signinForm" ng-submit="signIn(username, password)">
+				<input type="email" placeholder="your email" class="login-input-details" name="username" id="username" ng-model="username" required>
+				<input type="password" placeholder="your Password" class="login-input-details" name="password" id="password" ng-model="password" minlength="8" maxlength="20" required>
+				<div class="forgot-password-details">
+					<label ng-click="setPageMainContent('source/views/forgot-password.html')"><a href="#" class="underline">Forgot password</a></label>
+				</div>
+				<div class="login-button-details">
+					<button type="submit" class="btn-details">Log in</button>
+				</div>
+			</form>
+		</div>
+		<div class="signup-section-details">
+			<a ng-click="setPageMainContent('source/views/signup.html')" href="#">
+				<h2 class="heading-text">No Account?</h2>
+				<h5 class="underline">signup</h5>
+			</a>
+		</div>
+	</div>
+</div>

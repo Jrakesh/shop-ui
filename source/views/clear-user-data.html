@@ -1,0 +1,39 @@
+<div class="full-width pull-left getting-started">
+	<header class="header">
+		<div class="header-details" style="visibility: hidden;">
+			<label class="pull-left header-label-left">Google Map</label>
+			<label class="pull-right header-label-right"><a href="#">Save<i class="fa fa-caret-down caret-icon"></i></a></label>
+			<label class="pull-right header-label-right"><a href="#">Cancel</a></label>
+		</div>
+	</header>
+	<div class="main-content pull-left">
+		<div class="products-details">{{questionnaire_title}}</div>
+		<div class="pull-left section-one section-one-getting-started visibility-hidden"></div>
+		<div class="navigation-icon-getting-started">
+			<div class="forward-icon forward-icon-hidden"></div>
+		</div>
+		<div class="pull-left section-two second-section section-two-getting-started">
+			<div class="content-details pull-left margin-page-content">
+				<div class="user-option-details" ng-controller="clearUserDataCtrl">
+					<button class="question-show" ng-click="goToQuestion()">Go to Questions</button>
+				    <button class="delete-user" ng-click="deleteCurrentAnswer()">Clear Previous Answers</button>
+				</div>
+				<div class="logout-details" ng-controller="authCtrl">
+					<button ng-click="logout()">Logout</button>
+				</div>
+			</div>
+		</div>
+		<div class="navigation-icon-getting-started">
+			<div class="forward-icon forward-icon-hidden"></div>
+		</div>
+		<div class="pull-left section-three section-three-getting-started"></div>
+		<div class="nav-thumbs">
+	        <ul class="navigation-list" style="visibility: hidden">
+	            <li><a href="#" class="1 bullet-details" data-slide="1">1</a></li>
+	            <li><label class="nav-bridge">----------</label><a href="#" class="2 bullet-details" data-slide="2">2</a></li>
+	            <li><label class="nav-bridge">----------</label><a href="#" class="3 bullet-details" data-slide="3">3</a></li>
+	            <li><label class="nav-bridge">----------</label><a href="#" class="3 bullet-details" data-slide="3">3</a></li>
+	        </ul>
+	    </div>
+	</div>
+</div>

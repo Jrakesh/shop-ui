@@ -1,0 +1,69 @@
+<html lang="en" ng-app="app">
+<head>
+<title>Google Map</title>
+<!-- meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="source/assets/css/font-awesome.min.css" />
+ <link rel="stylesheet" href="source/assets/css/main.css" />
+ <link rel="stylesheet" href="source/assets/css/jquery-ui.css" />
+ <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+<link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-default.css" />
+<link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.css" />
+<link rel="stylesheet" href="bower_components/angularjs-datepicker/src/css/angular-datepicker.css" type="text/css" />
+
+<!--Dashboard JS	-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBro3T6pURicbxAS8pc_7zUzYOM9z5eNX0"></script>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>
+<script
+	src="bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/restangular/dist/restangular.min.js"></script>
+<script src="bower_components/angular-base64/angular-base64.js"></script>
+<script src="bower_components/spin.js/spin.js"></script>
+<script src="bower_components/angular-spinner/angular-spinner.js"></script>
+<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+<script src="bower_components/ng-dialog/js/ngDialog.js"></script>
+<script src="bower_components/nsPopover/src/nsPopover.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+
+<script src="source/app/app.js"></script>
+
+<script src="source/app/factory/user-factory.js"></script>
+<script src="source/app/factory/cookie-factory.js"></script>
+<script src="source/app/factory/question-factory.js"></script>
+<script src="source/app/factory/guest-factory.js"></script>
+    <script src="source/app/factory/shop-factory.js"></script>
+
+<script src="source/app/services/helper.js"></script>
+<script src="source/assets/js/constants.js"></script>
+<script src="source/assets/js/jquery.bxslider.js"></script>
+
+<script src="source/app/directives/create-text-question.js"></script>
+<script src="source/app/controllers/auth-controller.js"></script>
+
+<script src="source/app/controllers/main-controller.js"></script>
+<script src="source/app/controllers/header-controller.js"></script>
+<script src="source/app/controllers/startegy-controller.js"></script>
+<script src="source/app/controllers/question-controller.js"></script>
+<script src="source/app/controllers/clear-user-data-controller.js"></script>
+    <script src="source/app/controllers/shop-controller.js"></script>
+
+</head>
+
+<body ng-controller="mainCtrl" ng-init="initialize()" class="hold-transition skin-blue sidebar-mini">
+	<div ng-include src="contentUrl"></div>
+</body>
+
+</html>
