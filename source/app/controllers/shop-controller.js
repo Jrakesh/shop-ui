@@ -1,39 +1,6 @@
 app.controller('shopCtrl',['$scope','Restangular','shopServices', 'toastr', function ($scope, Restangular, shopServices, toastr){
     $scope.isDisabled = false;
 
-    var cities = [
-        {
-            city : 'Location 1',
-            desc : 'Test',
-            lat : 52.238983,
-            long : -0.888509
-        },
-        {
-            city : 'Location 2',
-            desc : 'Test',
-            lat : 52.238168,
-            long : -52.238168
-        },
-        {
-            city : 'Location 3',
-            desc : 'Test',
-            lat : 52.242452,
-            long : -0.889882
-        },
-        {
-            city : 'Location 4',
-            desc : 'Test',
-            lat : 52.247234,
-            long : -0.893567
-        },
-        {
-            city : 'Location 5',
-            desc : 'Test',
-            lat : 52.241874,
-            long : -0.883568
-        }
-    ];
-
     $scope.create = function(name, address, latitude, longitude) {
         var data = {
             name: name,
@@ -52,22 +19,56 @@ app.controller('shopCtrl',['$scope','Restangular','shopServices', 'toastr', func
     };
 
     $scope.init = function() {
-        // shopServices.get_all_details(Restangular).get().then(function (response) {
-        //     if (response.status == 0) {
-        //         console.log(response.data);
-        //     } else {
-        //         toastr.error(response.error.message);
-        //     }
-        // });
-        alert('hi');
-        function initialize() {
-            var mapProp = {
-                center:new google.maps.LatLng(51.508742,-0.120850),
-                zoom:5,
-                mapTypeId:google.maps.MapTypeId.ROADMAP
-            };
-            var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
+        shopServices.get_all_details(Restangular).get().then(function (response) {
+            if (response.status == 0) {
+                $scope.shop_details = [];
+                $scope.shop_details_for_table = response.data;
+                response.data.forEach(function(shop, index) {
+                    var shop_detail = [];
+                    var merge_address_and_name = "<h5> " + shop.name + " </h5><p> " + shop.address + "</p>";
+                    shop_detail.push(merge_address_and_name);
+                    shop_detail.push(parseFloat(shop.latitude));
+                    shop_detail.push(parseFloat(shop.longitude));
+                    shop_detail.push(index + 1);
+                    $scope.shop_details.push(shop_detail);
+                });
+
+                var locations = $scope.shop_details;
+                var map = new google.maps.Map(document.getElementById('googleMap'), {
+                    zoom: 10,
+                    center: new google.maps.LatLng(-39.92, 151.25),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+                var infowindow = new google.maps.InfoWindow();
+                var marker, i;
+                var markers = new Array();
+                for (i = 0; i < locations.length; i++) {
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                        map: map
+                    });
+                    markers.push(marker);
+                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                        return function() {
+                            infowindow.setContent(locations[i][0]);
+                            infowindow.open(map, marker);
+                        }
+                    })(marker, i));
+                }
+                function AutoCenter() {
+                    //  Create a new viewpoint bound
+                    var bounds = new google.maps.LatLngBounds();
+                    //  Go through each...
+                    $.each(markers, function (index, marker) {
+                        bounds.extend(marker.position);
+                    });
+                    //  Fit these bounds to the map
+                    map.fitBounds(bounds);
+                }
+                AutoCenter();
+            } else {
+                toastr.error(response.error.message);
+            }
+        });
     };
 }]);
