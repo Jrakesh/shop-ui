@@ -11,11 +11,11 @@ app.controller('shopCtrl',['$scope','Restangular','shopServices', 'toastr', func
         shopServices.create(Restangular).post(data).then(function (response) {
             if (response.status == 0) {
                 toastr.success(response.data.message);
+                location.reload();
             } else {
                 toastr.error(response.error.message);
             }
         });
-
     };
 
     $scope.init = function() {
