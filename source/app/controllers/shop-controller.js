@@ -24,7 +24,6 @@ app.controller('shopCtrl',['$scope','Restangular','shopServices', 'toastr', func
                 if (response.data.length) {
                     $scope.shop_details = [];
                     $scope.shop_details_for_table = response.data;
-                    console.log(response.data.length);
                     response.data.forEach(function(shop, index) {
                         var shop_detail = [];
                         var merge_address_and_name = "<h5> " + shop.name + " </h5><p> " + shop.address + "</p>";

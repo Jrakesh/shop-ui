@@ -22,8 +22,8 @@ app.run(['Restangular','$location', 'cookie', function(Restangular, $location, c
 			'Access-Control-Allow-Origin' : '*',
 			'Access-Control-Allow-Methods' : 'GET, POST, PUT, DELETE',
 			'Access-Control-Allow-Headers' : 'Accept, X-Requested-With',
-			'Api-Key' : '1e26686d806d82144a71ea9a99d1b3169adaad917'
-			// 'Authentication-Token' : cookie.getCookieId('auth-token')
+			'Api-Key' : '1e26686d806d82144a71ea9a99d1b3169adaad917',
+			'Authentication-Token' : cookie.getCookieId('auth-token')
 		});
 	})
 }]);
