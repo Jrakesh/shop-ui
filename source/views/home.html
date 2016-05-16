@@ -1,36 +1,39 @@
-<div class="middle text-center clearfix main-content" ng-controller="shopCtrl" ng-init="init()">
-	<div class="heading-content">
-		<label ng-click="setPageMainContent('source/views/shop.html')"><a href="#" class="underline">Create Shop</a></label>
-	</div>
+<div ng-controller="shopCtrl" ng-init="init()">
 	<div class="container">
-		<ul class="nav nav-pills">
-			<li class="active"><a data-toggle="pill" href="#home">Map View</a></li>
-			<li><a data-toggle="pill" href="#menu1">Table View</a></li>
-		</ul>
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>Google Map Inside Tab Panel</h1>
 
-		<div class="tab-content">
-			<div id="home" class="tab-pane fade in active">
-				<div id="googleMap" class="google-map"></div>
-			</div>
-			<div id="menu1" class="tab-pane fade">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Addres</th>
-							<th>Latitude</th>
-							<th>Longitude</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="shop in shop_details_for_table">
-							<td>{{ shop.name }}</td>
-							<td>{{ shop.address }}</td>
-							<td>{{ shop.latitude }}</td>
-							<td>{{ shop.longitude }}</td>
-						</tr>
-					</tbody>
-				</table>
+				<ul class="nav nav-tabs" id="myTab">
+					<li class="active"><a id="mapTab" href="#map" data-toggle="tab">Map View</a></li>
+					<li><a href="#messages" data-toggle="tab">Table View</a></li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane active" id="map">
+						<div id="map-canvas"></div>
+					</div>
+					<div class="tab-pane" id="messages">
+						<table class="table">
+							<thead>
+							<tr>
+								<th>Name</th>
+								<th>Addres</th>
+								<th>Latitude</th>
+								<th>Longitude</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="shop in shop_details_for_table">
+								<td>{{ shop.name }}</td>
+								<td>{{ shop.address }}</td>
+								<td>{{ shop.latitude }}</td>
+								<td>{{ shop.longitude }}</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

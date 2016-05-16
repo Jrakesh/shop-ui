@@ -1,0 +1,37 @@
+<div ng-controller="userCtrl">
+	<div class="page-content">
+		<div class="spinner-section hidden-section">
+			<span class="spinner-details" us-spinner="{radius:20, width:8, length: 16}" spinner-key="spinner-1"></span>
+		</div>
+		<div class="login-content">
+			<div class="heading-content">
+				<h2 class="heading-text">Sign Up</h2>
+				<h5>It's free and always with you.</h5>
+			</div>
+			<form name="signupForm" ng-submit="signUp(firstname, lastname, email, password, dob, gender)">
+				<input type="text" placeholder="First name" class="signup-input-details" name="firstname" id="firstname" ng-model="firstname" title="input should be alphabet only" minlength="3" maxlength="30" required>
+				<input type="text" placeholder="Last name" class="signup-input-details" name="lastname" id="lastname" ng-model="lastname" title="input should be alphabet only" minlength="3" maxlength="30" required>
+				<input type="email" placeholder="Your email" class="signup-input-details" name="email" id="email" ng-model="email" required>
+				<input type="password" placeholder="Your Password" class="signup-input-details" name="password" id="password" ng-model="password" minlength="8" maxlength="20" required>
+				<datepicker date-format="yyyy-MM-dd" selector="form-control" class="signup-dob">
+					<div class="input-group">
+						<input class="form-control" ng-model="dob" placeholder="Choose your date of birth" size="28" required/>
+					</div>
+				</datepicker>
+				<select class="form-control signup-input-details" name="gender" ng-model="gender">
+					<option value="male" selected>Male</option>
+					<option value="female">Female</option>
+				</select>
+				<div class="sign-up-button-details">
+					<button type="submit" class="sign-up-btn-details" ng-disabled="isDisabled" ng-model="isDisabled">Sign Up</button>
+				</div>
+			</form>
+		</div>
+		<div class="signup-section-details">
+			<a ng-click="setMainContentUrl('source/views/user/signin.html')" href="#">
+				<h4 class="heading-text">Already Signed up?</h4>
+				<h5 class="underline">Log In</h5>
+			</a>
+		</div>
+	</div>
+</div>

@@ -4,11 +4,8 @@
             <span class="spinner-details" us-spinner="{radius:20, width:8, length: 16}" spinner-key="spinner-1"></span>
         </div>
         <div class="forgot-password-content">
-            <div class="close-details" ng-click="setPageMainContent('source/views/home.html')"><a href="#" ng-disabled="isDisabled" ng-model="isDisabled"><i class="fa fa-times fa-2x"></i></a></div>
             <div class="heading-content">
-                <label ng-click="setPageMainContent('source/views/google-map.html')"><a href="#" class="underline">Google Map</a></label>
                 <h2 class="heading-text">Location Form</h2>
-                <h5>We'll send confirmation details</h5>
             </div>
             <form ng-submit="create(name, address, latitude, longitude)">
                 <input type="text" name="name" placeholder="your shop name" ng-model="name" class="login-input-details" required>

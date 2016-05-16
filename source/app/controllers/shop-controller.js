@@ -34,10 +34,10 @@ app.controller('shopCtrl',['$scope','Restangular','shopServices', 'toastr', func
                         $scope.shop_details.push(shop_detail);
                     });
 
-                    document.getElementById("googleMap").innerHTML = "";
+                    document.getElementById("map-canvas").innerHTML = "";
 
                     var locations = $scope.shop_details;
-                    var map = new google.maps.Map(document.getElementById('googleMap'), {
+                    var map = new google.maps.Map(document.getElementById('map-canvas'), {
                         zoom: 10,
                         center: new google.maps.LatLng(-39.92, 151.25),
                         mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -70,7 +70,7 @@ app.controller('shopCtrl',['$scope','Restangular','shopServices', 'toastr', func
                     }
                     AutoCenter();
                 } else {
-                    var div = document.getElementById('googleMap');
+                    var div = document.getElementById('map-canvas');
                     div.innerHTML = div.innerHTML + '<h2 class="text-warning">No shop available to show on map. Please add at least one shop.</h2>';
                 }
             } else {

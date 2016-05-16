@@ -272,6 +272,16 @@ input:focus, select:focus {
 .heading-content h5 {
 	color: #848484;
 }
+.signup-input-details {
+   background: #DDDDDD;
+   border: none;
+   display: block;
+   width: 70%;
+   margin: 3% 15%;
+   padding: 2%;
+   border-radius: 5px;
+
+}
 .login-input-details {
 	background: #DDDDDD;
 	border: none;
@@ -293,6 +303,11 @@ input:focus, select:focus {
 	float: left;
 	margin: 10% 0 10%;
 }
+.sign-up-button-details {
+   width: 100%;
+   float: left;
+   margin: 2% 0 3%;
+}
 .btn-details {
 	background: #5B6CD8;
 	width: 80%;
@@ -301,6 +316,15 @@ input:focus, select:focus {
 	border: none;
 	border-radius: 5px;
 	color: #fff;
+}
+.sign-up-btn-details {
+   background: #5B6CD8;
+   width: 80%;
+   margin: 0 10%;
+   padding: 2%;
+   border: none;
+   border-radius: 5px;
+   color: #fff;
 }
 .signup-section-details {
 	background: #DDD;
@@ -1730,7 +1754,103 @@ input[type="checkbox"] {
 	50% { width:80%; margin: 0 auto; }
 	100% { width:80%; margin: 0 auto; }
 }
-.google-map {
-   width:100%;
-   height:89%;
+
+html,body{
+   height:100%;
+}
+
+body{
+   padding-top:50px; /*padding for navbar*/
+}
+
+.navbar-custom .icon-bar {
+   background-color:#fff;
+}
+
+.navbar-custom {
+   background-color: #168ccc;
+   color:#fff;
+}
+
+.navbar-custom li>a:hover,.navbar-custom li>a:focus {
+   background-color:#49bfff;
+}
+
+.navbar-custom a{
+   color:#fefefe;
+}
+
+#map-canvas {
+   width:1140px;
+   height:480px;
+}
+
+.create-shop {
+	color: black !important;
+	font-size: 17px;
+}
+
+/*Gender CSS*/
+
+label.btn span {
+   font-size: 1.5em ;
+}
+
+label input[type="radio"] ~ i.fa.fa-circle-o{
+   color: #c8c8c8;    display: inline;
+}
+label input[type="radio"] ~ i.fa.fa-check-circle-o{
+   display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-circle-o{
+   display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-check-circle-o{
+   color: #7AA3CC;    display: inline;
+}
+label:hover input[type="radio"] ~ i.fa {
+   color: #7AA3CC;
+}
+
+div[data-toggle="buttons"] label.active{
+   color: #7AA3CC;
+}
+
+div[data-toggle="buttons"] label {
+   display: inline-block;
+   padding: 6px 12px;
+   margin-bottom: 0;
+   font-size: 14px;
+   font-weight: normal;
+   line-height: 2em;
+   text-align: left;
+   white-space: nowrap;
+   vertical-align: top;
+   cursor: pointer;
+   background-color: none;
+   border: 0px solid
+   #c8c8c8;
+   border-radius: 3px;
+   color: #c8c8c8;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -o-user-select: none;
+   user-select: none;
+}
+
+div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+   -webkit-box-shadow: none;
+   box-shadow: none;
+}
+
+.signup-dob {
+	margin: 0 0 5px 59px;
+	background: #DDDDDD;
+	border: none;
+	display: block;
+	width: 70%;
+	margin: 0 0 11px 57px;
+	padding: 2%;
+	border-radius: 5px;
 }
