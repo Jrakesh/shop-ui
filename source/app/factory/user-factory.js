@@ -15,6 +15,10 @@ app.factory('userServices', function () {
             resetPassword: function (Restangular)
             {
             return Restangular.service('services_without_token/forgot_password');
+            },
+            get_details: function (Restangular)
+            {
+               return Restangular.one('users/get_details');
             }
        }
 });

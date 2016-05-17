@@ -2,7 +2,20 @@ app.controller('userCtrl',['$scope','Restangular','userServices', 'helper', 'toa
     $scope.isDisabled = false;
 
     $scope.init = function () {
-        alert("Hiii...");
+        userServices.get_details(Restangular).get().then(function (response) {
+            $scope.isDisabled = true;
+            helper.startSpin();
+            if(response.status == 0){
+                console.log(response.data);
+                $scope.userProfileInfo = response.data;
+                helper.stopSpin();
+            }
+            if(response.status == -1){
+                helper.stopSpin();
+                toastr.error(response.error.message);
+                $scope.isDisabled = false;
+            }
+        });
     }
 
     $scope.signIn = function(email, password) {
@@ -53,16 +66,14 @@ app.controller('userCtrl',['$scope','Restangular','userServices', 'helper', 'toa
 			}
 			if(response.status == -1){
 				helper.stopSpin();
-				if(response.error.code == -104)
-				{
-					toastr.error(response.error.message);
-				}
+                toastr.error(response.error.message);
                 $scope.isDisabled = false;
 			}
         })
     };
 
     $scope.logout = function() {
+        $scope.isDisabled = true;
         helper.startSpin();
         userServices.logout(Restangular).get().then(function (response) {
             localStorageService.clearAll();
@@ -73,6 +84,7 @@ app.controller('userCtrl',['$scope','Restangular','userServices', 'helper', 'toa
             location.reload();
         });
     };
+
     //
     // $scope.forgotPassword = function(email) {
     //     $scope.isDisabled = true;

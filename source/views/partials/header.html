@@ -1,11 +1,21 @@
 <nav class="navbar navbar-custom navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">GoogleMap</a>
+            <a class="navbar-brand" href="#" ng-click="setMainContentUrl('source/views/home.html')">GoogleMap</a>
         </div>
         <ul class="nav navbar-nav">
             <li class="active"  ng-show="{{userProfile}}">
-                <a href="#" ng-click="setMainContentUrl('source/views/home.html')">Home</a>
+                <a href="#" ng-click="setMainContentUrl('source/views/dashboard.html')">Home</a>
+            </li>
+            <li class="dropdown"  ng-show="{{userProfile}}">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Role <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#" ng-click="setMainContentUrl('source/views/shop.html')">Roles</a>
+                        <a href="#" ng-click="setMainContentUrl('source/views/shop.html')">Privileges</a>
+                        <a href="#" ng-click="setMainContentUrl('source/views/shop.html')">Update role</a>
+                    </li>
+                </ul>
             </li>
             <li class="dropdown"  ng-show="{{userProfile}}">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Shop <span class="caret"></span></a>
@@ -25,7 +35,7 @@
             <li  ng-hide="{{userProfile}}">
                 <a href="#" ng-click="setMainContentUrl('source/views/user/signin.html')"><span class="glyphicon glyphicon-log-in"></span> Login</a>
             </li>
-            <li ng-controller="userCtrl" ng-init="init()" class="dropdown" ng-show="{{userProfile}}">
+            <li ng-controller="userCtrl" class="dropdown" ng-show="{{userProfile}}">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>Rahul Sharma</a>
                 <ul class="dropdown-menu">
                     <li>

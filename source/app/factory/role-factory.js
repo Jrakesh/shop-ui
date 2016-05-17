@@ -1,4 +1,4 @@
-app.factory('shopServices', function () {
+app.factory('roleServices', function () {
     return{
         create: function(Restangular)
         {

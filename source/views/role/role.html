@@ -1,0 +1,68 @@
+<div ng-controller="roleCtrl" ng-init="init()">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Google Map Inside Tab Panel</h1>
+
+                <ul class="nav nav-tabs" id="myTab">
+                    <li class="active"><a id="mapTab" href="#map" data-toggle="tab">Map View</a></li>
+                    <li><a href="#messages" data-toggle="tab">Table View</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="map">
+                        <div id="map-canvas"></div>
+                    </div>
+                    <div class="tab-pane" id="messages">
+                        <script type="text/ng-template" id="confirmationPopUp">
+                            <div class="btn-back">
+                                <h5>Are you sure you want to do that?</h5>
+                                <button type="button" class="btn btn-danger" ng-click=confirm("OK")>Delete</button>
+                                <button type="button" class="btn btn-primary" ng-click=closeThisDialog("Cancel")>Cancel</button>
+                            </div>
+                        </script>
+                        <script type="text/ng-template" id="updatePopUp">
+                            <div class="spinner-section hidden-section">
+                                <span class="spinner-details" us-spinner="{radius:20, width:8, length: 16}" spinner-key="spinner-1"></span>
+                            </div>
+                            <div>
+                                <div class="heading-content">
+                                    <h2 class="heading-text">Shop Form</h2>
+                                </div>
+                                <input type="text" name="edit_name" placeholder="your shop name" ng-model="edit_shop.name" class="login-input-details" required>
+                                <input type="text" name="edit_address" placeholder="your shop address" ng-model="edit_shop.address" class="login-input-details" required>
+                                <input type="text" name="edit_latitude" placeholder="your shop latitude" ng-model="edit_shop.latitude" class="login-input-details" required>
+                                <input type="text" name="edit_longitude" placeholder="your shop longitude" ng-model="edit_shop.longitude" class="login-input-details" required>
+                                <button type="button" class="shop-edit-submit" ng-click=confirm("OK")>Submit</button>
+                                <button type="button" class="shop-edit-cancel" ng-click=closeThisDialog("Cancel")>Cancel</button>
+                            </div>
+                        </script>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Addres</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="shop in shop_details_for_table">`
+                                <td>{{ shop.name }}</td>
+                                <td>{{ shop.address }}</td>
+                                <td>{{ shop.latitude }}</td>
+                                <td>{{ shop.longitude }}</td>
+                                <td>
+                                    <a href="" ng-click="delete(shop.id)"><span class="glyphicon glyphicon-trash"></span></a>
+                                    <a href="" ng-click="edit(shop.id)"><span class="glyphicon glyphicon-edit"></span></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

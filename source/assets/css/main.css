@@ -1854,3 +1854,23 @@ div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active
 	padding: 2%;
 	border-radius: 5px;
 }
+
+.shop-edit-submit {
+	background: #5B6CD8;
+	width: 26%;
+	margin: 0 16%;
+	padding: 2%;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+}
+
+.shop-edit-cancel {
+   background: #ac2925;
+   width: 26%;
+   margin: 0 0;
+   padding: 2%;
+   border: none;
+   border-radius: 5px;
+   color: #fff;
+}
