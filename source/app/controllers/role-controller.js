@@ -326,7 +326,6 @@ app.controller('roleCtrl',['$scope','Restangular','roleServices', 'userServices'
                 new_privileges.push(privilege)
             }
         });
-        console.log(new_privileges);
         var data = {
             role_id: $scope.role.id,
             privileges: new_privileges

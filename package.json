@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "GoogleMap",
   "readme": "README.md",
-  "baseURL" : "http://localhost:3000/api/v1",
+  "baseURL" : "https://immense-springs-84828.herokuapp.com/api/v1",
   "Api-Key": "1e26686d806d82144a71ea9a99d1b3169adaad917",
   "devDependencies": {
     "grunt": "^0.4.5",
