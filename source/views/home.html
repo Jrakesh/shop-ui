@@ -6,14 +6,14 @@
 
 				<ul class="nav nav-tabs" id="myTab">
 					<li class="active"><a id="mapTab" href="#map" data-toggle="tab">Map View</a></li>
-					<li><a href="#messages" data-toggle="tab">Table View</a></li>
+					<li ng-show="{{(userPrivileges.indexOf('Delete shop') != -1) || (userPrivileges.indexOf('Edit shop') != -1) || (userPrivileges.indexOf('Read shop') != -1)}}"><a href="#messages" data-toggle="tab">Table View</a></li>
 				</ul>
 
 				<div class="tab-content">
 					<div class="tab-pane active" id="map">
 						<div id="map-canvas"></div>
 					</div>
-					<div class="tab-pane" id="messages">
+					<div class="tab-pane" id="messages" ng-show="{{(userPrivileges.indexOf('Delete shop') != -1) || (userPrivileges.indexOf('Edit shop') != -1) || (userPrivileges.indexOf('Read shop') != -1)}}">
 						<script type="text/ng-template" id="confirmationPopUp">
 							<div class="btn-back">
 								<h5>Are you sure you want to do that?</h5>
@@ -44,7 +44,7 @@
 									<th>Addres</th>
 									<th>Latitude</th>
 									<th>Longitude</th>
-									<th>Action</th>
+									<th ng-show="{{(userPrivileges.indexOf('Delete shop') != -1) || (userPrivileges.indexOf('Edit shop') != -1)}}">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -53,9 +53,9 @@
 									<td>{{ shop.address }}</td>
 									<td>{{ shop.latitude }}</td>
 									<td>{{ shop.longitude }}</td>
-									<td>
-										<a href="" ng-click="delete(shop.id)"><span class="glyphicon glyphicon-trash"></span></a>
-										<a href="" ng-click="edit(shop.id)"><span class="glyphicon glyphicon-edit"></span></a>
+									<td ng-show="{{(userPrivileges.indexOf('Delete shop') != -1) || (userPrivileges.indexOf('Edit shop') != -1)}}">
+										<a href="" ng-click="delete(shop.id)" ng-show="{{userPrivileges.indexOf('Delete shop') != -1}}"><span class="glyphicon glyphicon-trash"></span></a>
+										<a href="" ng-click="edit(shop.id)" ng-show="{{userPrivileges.indexOf('Edit shop') != -1}}"><span class="glyphicon glyphicon-edit"></span></a>
 									</td>
 								</tr>
 							</tbody>

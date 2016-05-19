@@ -1,4 +1,4 @@
-app.controller('userCtrl',['$scope','Restangular','userServices', 'helper', 'toastr', 'cookie', 'localStorageService','APP_CONSTANT', '$interval', function ($scope, Restangular, userServices, helper, toastr, cookie, localStorageService, APP_CONSTANT, $interval){
+app.controller('userCtrl',['$scope', '$rootScope', 'Restangular','userServices', 'helper', 'toastr', 'cookie', 'localStorageService','APP_CONSTANT', '$interval', function ($scope, $rootScope, Restangular, userServices, helper, toastr, cookie, localStorageService, APP_CONSTANT, $interval){
     $scope.isDisabled = false;
 
     $scope.init = function () {
@@ -28,10 +28,11 @@ app.controller('userCtrl',['$scope','Restangular','userServices', 'helper', 'toa
         };
         userServices.login(Restangular).post(data).then(function (response) {
             if (response.data) {
-                if (localStorageService.isSupported) {
-                    localStorageService.set(name, (response.data.first_name + ' ' + response.data.last_name));
-                }
-                cookie.set('auth-token', response.data.authentication_token);
+                var user_response = response.data;
+                $rootScope.userPrivileges = user_response.privileges;
+                cookie.set('auth-token', user_response.authentication_token);
+                cookie.set('user-privilege', user_response.privileges);
+                cookie.set('user-name', user_response.user.first_name + ' ' +  user_response.user.last_name);
                 helper.stopSpin();
                 toastr.success("Successfully login");
                 $scope.setMainContentUrl("source/views/dashboard.html");
@@ -78,6 +79,8 @@ app.controller('userCtrl',['$scope','Restangular','userServices', 'helper', 'toa
         userServices.logout(Restangular).get().then(function (response) {
             localStorageService.clearAll();
             cookie.remove("auth-token");
+            cookie.remove("user-privilege");
+            cookie.remove("user-name");
             toastr.success(response.data.message);
             helper.stopSpin();
             $scope.setMainContentUrl("source/views/google-map.html");

@@ -1,20 +1,52 @@
 app.factory('roleServices', function () {
     return{
-        create: function(Restangular)
+        get_all_role: function (Restangular)
         {
-            return Restangular.service('shops/create');
+            return Restangular.one('users_role/get_all_role');
         },
-        get_all_details: function (Restangular)
+        get_all_privilege: function (Restangular)
         {
-            return Restangular.one('shops/get_all_details');
+            return Restangular.one('users_role/get_all_privilege');
         },
-        delete: function (Restangular)
+        create_role: function (Restangular)
         {
-            return Restangular.service("shops/delete");
+            return Restangular.service("users_role/create_role");
         },
-        edit: function (Restangular)
+        create_privilege: function (Restangular)
         {
-            return Restangular.service("shops/edit");
+            return Restangular.service("users_role/create_privilege");
+        },
+        delete_role: function (Restangular)
+        {
+            return Restangular.service("users_role/delete_role");
+        },
+        delete_privilege: function (Restangular)
+        {
+            return Restangular.service("users_role/delete_privilege");
+        },
+        edit_role: function (Restangular)
+        {
+            return Restangular.service("users_role/edit_role");
+        },
+        edit_privilege: function (Restangular)
+        {
+            return Restangular.service("users_role/edit_privilege");
+        },
+        get_user_role: function (Restangular)
+        {
+            return Restangular.service('users_role/get_user_role');
+        },
+        change_user_role: function (Restangular)
+        {
+            return Restangular.service('users_role/change_user_role');
+        },
+        get_privilege_by_role: function (Restangular)
+        {
+            return Restangular.service('users_role/get_privilege_by_role');
+        },
+        change_role_privileges: function (Restangular)
+        {
+            return Restangular.service('users_role/change_role_privileges');
         }
     }
 });

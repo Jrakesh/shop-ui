@@ -19,6 +19,10 @@ app.factory('userServices', function () {
             get_details: function (Restangular)
             {
                return Restangular.one('users/get_details');
+            },
+            get_all_user: function (Restangular)
+            {
+               return Restangular.one('users/get_all_user');
             }
        }
 });

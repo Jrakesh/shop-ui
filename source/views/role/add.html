@@ -1,0 +1,123 @@
+<div ng-controller="roleCtrl" ng-init="init()">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-xs-6">
+                    <script type="text/ng-template" id="confirmationPopUp">
+                        <div class="btn-back">
+                            <h5>Are you sure you want to do that?</h5>
+                            <button type="button" class="btn btn-danger" ng-click=confirm("OK")>Delete</button>
+                            <button type="button" class="btn btn-primary" ng-click=closeThisDialog("Cancel")>Cancel</button>
+                        </div>
+                    </script>
+                    <script type="text/ng-template" id="addPopUp">
+                        <div class="spinner-section hidden-section">
+                            <span class="spinner-details" us-spinner="{radius:20, width:8, length: 16}" spinner-key="spinner-1"></span>
+                        </div>
+                        <div>
+                            <div class="heading-content">
+                                <h2 class="heading-text" ng-show="isRole">Role Form</h2>
+                                <h2 class="heading-text" ng-show="isPrivilege">Privilege Form</h2>
+                            </div>
+                            <input type="text" name="role_name" placeholder="your role name" ng-model="add.role" class="login-input-details" ng-show="isRole" required>
+                            <input type="text" name="privilege_name" placeholder="your privilege name" ng-model="add.privilege" class="login-input-details" ng-show="isPrivilege" required>
+                            <button type="button" class="shop-edit-submit" ng-click=confirm("OK")>Submit</button>
+                            <button type="button" class="shop-edit-cancel" ng-click=closeThisDialog("Cancel")>Cancel</button>
+                        </div>
+                    </script>
+                    <script type="text/ng-template" id="editPopUp">
+                        <div class="spinner-section hidden-section">
+                            <span class="spinner-details" us-spinner="{radius:20, width:8, length: 16}" spinner-key="spinner-1"></span>
+                        </div>
+                        <div>
+                            <div class="heading-content">
+                                <h2 class="heading-text" ng-show="isRole">Role Form</h2>
+                                <h2 class="heading-text" ng-show="isPrivilege">Privilege Form</h2>
+                            </div>
+                            <input type="text" name="role_name" placeholder="your role name" ng-model="role.name" class="login-input-details" ng-show="isRole" required>
+                            <input type="text" name="privilege_name" placeholder="your privilege name" ng-model="privilege.name" class="login-input-details" ng-show="isPrivilege" required>
+                            <button type="button" class="shop-edit-submit" ng-click=confirm("OK")>Submit</button>
+                            <button type="button" class="shop-edit-cancel" ng-click=closeThisDialog("Cancel")>Cancel</button>
+                        </div>
+                    </script>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="col-md-2">
+                                    <h2 class="sub-header">Roles</h2>
+                                </div>
+                            </td>
+                            <td ng-show="{{userPrivileges.indexOf('Add role') != -1}}">
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary" ng-click=addRole()>Add</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th ng-show="{{(userPrivileges.indexOf('Edit role') != -1) || (userPrivileges.indexOf('Delete role') != -1)}}">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="role in roles">`
+                                <td>{{ role.name }}</td>
+                                <td ng-show="{{(userPrivileges.indexOf('Edit role') != -1) || (userPrivileges.indexOf('Delete role') != -1)}}">
+                                    <div class="col-md-1" ng-show="{{userPrivileges.indexOf('Delete role') != -1}}">
+                                        <a href="" ng-click="deleteRole(role.id)"><span class="glyphicon glyphicon-trash"></span></a>
+                                    </div>
+                                    <div class="col-md-1" ng-show="{{userPrivileges.indexOf('Edit role') != -1}}">
+                                        <a href="" ng-click="editRole(role.id)"><span class="glyphicon glyphicon-edit"></span></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="col-md-2">
+                                    <h2 class="sub-header">Privileges</h2>
+                                </div>
+                            </td>
+                            <td ng-show="{{userPrivileges.indexOf('Add privilege') != -1}}">
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary" ng-click="addPrivilege()">Add</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th ng-show="{{(userPrivileges.indexOf('Edit privilege') != -1) || (userPrivileges.indexOf('Delete privilege') != -1)}}">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="privilege in privileges">`
+                                <td>{{ privilege.name }}</td>
+                                <td ng-show="{{(userPrivileges.indexOf('Edit privilege') != -1) || (userPrivileges.indexOf('Delete privilege') != -1)}}">
+                                    <div class="col-md-1" ng-show="{{userPrivileges.indexOf('Delete privilege') != -1}}">
+                                        <a href="" ng-click="deletePrivilege(privilege.id)"><span class="glyphicon glyphicon-trash"></span></a>
+                                    </div>
+                                    <div class="col-md-1" ng-show="{{userPrivileges.indexOf('Edit privilege') != -1}}">
+                                        <a href="" ng-click="editPrivilege(privilege.id)"><span class="glyphicon glyphicon-edit"></span></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

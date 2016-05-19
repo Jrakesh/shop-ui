@@ -290,7 +290,6 @@ input:focus, select:focus {
 	margin: 3% 15%;
 	padding: 5%;
 	border-radius: 5px;
-
 }
 .forgot-password-details {
 	float: right;
@@ -1873,4 +1872,27 @@ div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active
    border: none;
    border-radius: 5px;
    color: #fff;
+}
+.update-role {
+	margin-top: 26px;
+}
+.role-for-privilege {
+   background: #DDDDDD;
+   border: none;
+   display: block;
+   width: 50%;
+   padding: 2%;
+   border-radius: 5px;
+}
+.role-privileges {
+	margin: 10px 0px 0px 0px;
+}
+.role-privilege-button {
+	background: #5B6CD8;
+	width: 20%;
+	margin: 0 11%;
+	padding: 2%;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
 }

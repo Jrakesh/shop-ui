@@ -19,7 +19,9 @@ app.controller('shopCtrl',['$scope','Restangular','shopServices', 'toastr', 'ngD
     };
 
     $scope.delete = function(shop_id) {
-        ngDialog.openConfirm({template: 'confirmationPopUp'}).then(
+        ngDialog.openConfirm({
+            template: 'confirmationPopUp'
+        }).then(
             function(value) {
                 //You need to implement the saveForm() method which should return a promise object
                 var data = {
@@ -34,6 +36,7 @@ app.controller('shopCtrl',['$scope','Restangular','shopServices', 'toastr', 'ngD
                             }
                         });
                         $scope.shop_details_for_table = shop_details;
+                        toastr.success(response.data.message);
                     } else {
                         toastr.error(response.error.message);
                     }
@@ -44,6 +47,7 @@ app.controller('shopCtrl',['$scope','Restangular','shopServices', 'toastr', 'ngD
             }
         );
     }
+
     $scope.edit = function(shop_id) {
         for (i = 0; i < $scope.shop_details_for_table.length; i++) {
             if ($scope.shop_details_for_table[i].id == shop_id) {
@@ -54,7 +58,8 @@ app.controller('shopCtrl',['$scope','Restangular','shopServices', 'toastr', 'ngD
 
         var shop_before_edit = angular.copy($scope.shop_details_for_table);
 
-        ngDialog.openConfirm({template: 'updatePopUp',
+        ngDialog.openConfirm({
+            template: 'updatePopUp',
             scope: $scope
             }).then(
                 function(value) {

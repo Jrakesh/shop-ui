@@ -1,0 +1,41 @@
+<div ng-controller="roleCtrl" ng-init="init()">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-md-4 update-role" ng-show="{{userPrivileges.indexOf('Update user role') != -1}}">
+                    <div class="spinner-section hidden-section">
+                        <span class="spinner-details" us-spinner="{radius:20, width:8, length: 16}" spinner-key="spinner-1"></span>
+                    </div>
+                    <div>
+                        <div class="login-content">
+                            <div class="heading-content">
+                                <h2 class="heading-text">Role</h2>
+                                <h5>Modify role of user:</h5>
+                            </div>
+                            <form name="signinForm" ng-submit="changeRole()">
+                                <select class="login-input-details" ng-model="user.id" ng-click="selectUser()" required>
+                                    <option value="">Select user</option>
+                                    <option ng-repeat="user in users" value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+                                </select>
+                                <select id="user-role" class="login-input-details" ng-model="user.role" ng-show="isUserExist" required>
+                                    <option value="">Select role</option>
+                                    <option ng-repeat="role in roles" value="{{role.id}}">{{role.name}}</option>
+                                </select>
+                                <div class="login-button-details">
+                                    <button type="submit" class="btn-details">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 update-role" ng-show="{{userPrivileges.indexOf('Update role privilege') != -1}}">
+                    <select class="role-for-privilege" ng-model="role.id" ng-click="selectRole()">
+                        <option value="">Select role</option>
+                        <option ng-repeat="role in roles" value="{{role.id}}">{{role.name}}</option>
+                    </select>
+                    <div id="user-role-privileges"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
