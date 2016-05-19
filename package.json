@@ -20,10 +20,12 @@
     "karma": "0.12.16",
     "karma-jasmine": "0.1.5",
     "karma-phantomjs-launcher": "0.1.4",
-    "bower": "1.7.9"
+    "bower": "^1.7.9"
+  },
+  "engines": {
+    "node": "4.4.4"
   },
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install",
-    "test": "grunt build"
+    "postinstall": "bower cache clean && bower install"
   }
 }
